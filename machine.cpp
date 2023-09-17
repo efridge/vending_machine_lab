@@ -76,11 +76,11 @@ void Machine::ProcessVending() {
   if(! this->inventory[drinkNumber-1].IsSoldOut()) {
      newAmount = this->inventory[drinkNumber-1].SellDrink();
     cout << "Here's your drink!" << endl;
-    this->printColaAscii();
+    this->printColaAscii(this->inventory[drinkNumber-1].GetName());
   }
 
   if(newAmount > 0) {
-    cout << "There are" << newAmount <<  " drinks remaining." << endl;
+    cout << "There are " << newAmount <<  " drinks remaining." << endl;
   } else {
     cout <<  "This drink has sold out :(" << endl;
   }
@@ -88,15 +88,16 @@ void Machine::ProcessVending() {
 
 /**
  * Prints an ASCII art bottle of cola
+ * @param drinkName The name to put on the bottle
 */
-void Machine::printColaAscii() {
+void Machine::printColaAscii(string drinkName) {
   cout << "        _        " << endl;
   cout << "      .!.!.      " << endl;
   cout << "       ! !       " << endl;
   cout << "       ; :       " << endl;
   cout << "      ;   :      " << endl;
   cout << "     ;_____:     " << endl;
-  cout << "     ! cola!     " << endl;
+  cout << "     ! " << setw(4) << drinkName.substr(0, 4) << "!     " << endl;
   cout << "     !_____!     " << endl;
   cout << "     :     :     " << endl;
   cout << "     :     ;     " << endl;

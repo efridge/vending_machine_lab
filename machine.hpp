@@ -9,7 +9,7 @@ class Machine {
   public:
 
     // Total number of drinks the machine can hold
-    static const int CAPACITY = 1;
+    static const int CAPACITY = 3;
 
     Machine();
     void InitMachine();
@@ -19,7 +19,7 @@ class Machine {
   private:
     Drink inventory[CAPACITY];
 
-    void printColaAscii();
+    void printColaAscii(string drinkName);
 
 };
 #endif
