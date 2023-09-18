@@ -4,9 +4,9 @@ using namespace std;
 
 // Default constructor, initialize as if it's empty
 Drink::Drink(){
-  this->name = "empty";
-  this->cost = 0.00;
-  this->quantity = 0;
+  name = "empty";
+  cost = 0.00;
+  quantity = 0;
 }
 
 /**
@@ -16,9 +16,9 @@ Drink::Drink(){
  * @param initQuantity - Initial number of drinks on hand
 */
 Drink::Drink(string initName, double initCost, int initQuantity){
-  this->name = initName;
-  this->cost = initCost;
-  this->quantity = initQuantity;
+  name = initName;
+  cost = initCost;
+  quantity = initQuantity;
 }
 
 /**
@@ -26,7 +26,7 @@ Drink::Drink(string initName, double initCost, int initQuantity){
  * @param newName - The new name to set
 */
 void Drink::SetName(string newName){
- this->name = newName;
+ name = newName;
 }
 
 /**
@@ -34,7 +34,7 @@ void Drink::SetName(string newName){
  * @returns The drink cost
 */
 double Drink::GetCost(){
- return this->cost;
+ return cost;
 }
 
 /**
@@ -42,7 +42,7 @@ double Drink::GetCost(){
  * @returns The drink name
 */
 string Drink::GetName(){
- return this->name;
+ return name;
 }
 
 /**
@@ -50,10 +50,10 @@ string Drink::GetName(){
  * @returns The new inventory amount.
 */
 int Drink::SellDrink() {
-  if(this->quantity > 0) {
-    this->quantity--;
+  if(quantity > 0) {
+    quantity--;
   }
-  return this->quantity;
+  return quantity;
 }
 
 /**
@@ -61,7 +61,7 @@ int Drink::SellDrink() {
  * @returns A boolean indicating the drink status.
 */
 bool Drink::IsSoldOut(){
-  return this->quantity == 0;
+  return quantity == 0;
 }
 
 /**
@@ -69,5 +69,5 @@ bool Drink::IsSoldOut(){
  * @returns The number of drinks available of this type.
 */
 int Drink::GetQuantity(){
-  return this->quantity;
+  return quantity;
 }

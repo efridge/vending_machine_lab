@@ -37,7 +37,7 @@ void Machine::InitMachine() {
       cin.clear();
     }
 
-    this->inventory[i] = Drink(name, cost, quantity);
+    inventory[i] = Drink(name, cost, quantity);
   }
 }
 
@@ -46,14 +46,14 @@ void Machine::InitMachine() {
 */
 void Machine::DisplayMachine() {
   cout << "\n\n------- Drink ---- Cost --- Status ---" << endl;
-  for(int i = 0; i < this->CAPACITY; i++) {
-    cout << i + 1 << ": " << setw(10) << this->inventory[i].GetName() << "   ";
-    cout << setw(5) << setprecision(2) << "$" << this->inventory[i].GetCost() << "   ";
+  for(int i = 0; i < CAPACITY; i++) {
+    cout << i + 1 << ": " << setw(10) << inventory[i].GetName() << "   ";
+    cout << setw(5) << setprecision(2) << "$" << inventory[i].GetCost() << "   ";
 
-    if(this->inventory[i].IsSoldOut()) {
+    if(inventory[i].IsSoldOut()) {
       cout << "SOLD OUT " << endl;
     } else {
-      cout << this->inventory[i].GetQuantity() << " Available" << endl;
+      cout << inventory[i].GetQuantity() << " Available" << endl;
     }
   }
   cout << "\n\n--------------------------------------" << endl;
@@ -70,13 +70,13 @@ void Machine::ProcessVending() {
   do {
     cout << "Please enter the drink number: " << endl;
     cin >> drinkNumber;
-  } while(std::cin.fail() || drinkNumber <= 0 || drinkNumber > this->CAPACITY);
+  } while(std::cin.fail() || drinkNumber <= 0 || drinkNumber > CAPACITY);
 
   // If the drink is not sold out yet, sell one of the drinks
-  if(! this->inventory[drinkNumber-1].IsSoldOut()) {
-     newAmount = this->inventory[drinkNumber-1].SellDrink();
+  if( !inventory[drinkNumber-1].IsSoldOut() ) {
+     newAmount = inventory[drinkNumber-1].SellDrink();
     cout << "Here's your drink!" << endl;
-    this->printColaAscii(this->inventory[drinkNumber-1].GetName());
+    this->printColaAscii(inventory[drinkNumber-1].GetName());
   }
 
   if(newAmount > 0) {
