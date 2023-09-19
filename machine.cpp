@@ -76,7 +76,7 @@ void Machine::ProcessVending() {
   if( !inventory[drinkNumber-1].IsSoldOut() ) {
      newAmount = inventory[drinkNumber-1].SellDrink();
     cout << "Here's your drink!" << endl;
-    this->printColaAscii(inventory[drinkNumber-1].GetName());
+    PrintColaAscii(inventory[drinkNumber-1].GetName());
   }
 
   if(newAmount > 0) {
@@ -90,7 +90,7 @@ void Machine::ProcessVending() {
  * Prints an ASCII art bottle of cola
  * @param drinkName The name to put on the bottle
 */
-void Machine::printColaAscii(string drinkName) {
+void Machine::PrintColaAscii(string drinkName) {
   cout << "        _        " << endl;
   cout << "      .!.!.      " << endl;
   cout << "       ! !       " << endl;

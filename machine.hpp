@@ -19,7 +19,7 @@ class Machine {
   private:
     Drink inventory[CAPACITY];
 
-    void printColaAscii(string drinkName);
+    void PrintColaAscii(string drinkName);
 
 };
 #endif
